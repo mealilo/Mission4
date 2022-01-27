@@ -30,6 +30,7 @@ namespace Mission4.Models
 
         public bool edited { get; set; }
         public string lentTo { get; set; }
+        [MaxLength(25)]
         public string notes { get; set; }
     }
 }
