@@ -9,48 +9,45 @@
 
     <form method="post">
 
-        <div>
 
-        </div>
         <label asp-for="title">Title</label>
-        <input asp-for="title" />
+        <input class="form-control" asp-for="title" />
         <br />
         <label asp-for="rating">Rating</label>
-        <select asp-for="rating">
+        <select class="form-control" asp-for="rating">
             <option value="G">G</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
             <option value="R">R</option>
         </select>
+        <br />
 
         <label asp-for="title">Category</label>
-        <input asp-for="title" />
+        <input class="form-control" asp-for="title" />
         <br />
 
-        <label asp-for="title">Title</label>
-        <input asp-for="title" />
+        <label asp-for="year">Title</label>
+        <input class="form-control" type="number" asp-for="year" />
         <br />
 
-        <label asp-for="title">Title</label>
-        <input asp-for="title" />
+        <label asp-for="director">Director</label>
+        <input class="form-control" asp-for="director" />
         <br />
 
-        <label asp-for="title">Title</label>
-        <input asp-for="title" />
+        <label asp-for="edited">Edited</label>
+        <input class="form-control" type="checkbox" asp-for="edited" />
+        <br />
+
+        <label asp-for="lentTo">Lent To</label>
+        <input class="form-control" asp-for="lentTo" />
+        <br />
+
+        <label asp-for="notes">Notes</label>
+        <input class="form-control" asp-for="title" />
         <br />
 
 
 
-
-
-
-        public string category { get; set; }
-        public string title { get; set; }
-        public int year { get; set; }
-        public string director { get; set; }
-        public bool edited { get; set; }
-        public string lentTo { get; set; }
-        public string notes { get; set; }
-        <button type="submit">Add Movie</button>
+        <button class="form-control" type="submit">Add Movie</button>
     </form>
 </div>
