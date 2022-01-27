@@ -8,7 +8,7 @@ using Mission4.Models;
 namespace Mission4.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20220127003704_Initial")]
+    [Migration("20220127005736_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,44 @@ namespace Mission4.Migrations
                     b.HasKey("MovieID");
 
                     b.ToTable("Movie");
+
+                    b.HasData(
+                        new
+                        {
+                            MovieID = 1,
+                            category = "Action",
+                            director = "Quentin",
+                            edited = false,
+                            lentTo = "Bob",
+                            notes = "Very Good",
+                            rating = "PG-13",
+                            title = "Incredibles",
+                            year = 2009
+                        },
+                        new
+                        {
+                            MovieID = 2,
+                            category = "Comedy",
+                            director = "Jack Black",
+                            edited = true,
+                            lentTo = "Bob",
+                            notes = "",
+                            rating = "PG-13",
+                            title = "Wahtever",
+                            year = 2109
+                        },
+                        new
+                        {
+                            MovieID = 3,
+                            category = "Drama",
+                            director = "Other",
+                            edited = true,
+                            lentTo = "Jack",
+                            notes = "Very Good",
+                            rating = "R",
+                            title = "Yeet",
+                            year = 2009
+                        });
                 });
 #pragma warning restore 612, 618
         }

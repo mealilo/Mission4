@@ -25,6 +25,21 @@ namespace Mission4.Migrations
                 {
                     table.PrimaryKey("PK_Movie", x => x.MovieID);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Movie",
+                columns: new[] { "MovieID", "category", "director", "edited", "lentTo", "notes", "rating", "title", "year" },
+                values: new object[] { 1, "Action", "Quentin", false, "Bob", "Very Good", "PG-13", "Incredibles", 2009 });
+
+            migrationBuilder.InsertData(
+                table: "Movie",
+                columns: new[] { "MovieID", "category", "director", "edited", "lentTo", "notes", "rating", "title", "year" },
+                values: new object[] { 2, "Comedy", "Jack Black", true, "Bob", "", "PG-13", "Wahtever", 2109 });
+
+            migrationBuilder.InsertData(
+                table: "Movie",
+                columns: new[] { "MovieID", "category", "director", "edited", "lentTo", "notes", "rating", "title", "year" },
+                values: new object[] { 3, "Drama", "Other", true, "Jack", "Very Good", "R", "Yeet", 2009 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
