@@ -48,6 +48,14 @@
 
 
 
-        <button class="form-control" type="submit">Add Movie</button>
+        <input class="form-control" type="submit" value="Add Movie" />
+
+        <div asp-validation-summary="All"></div>
     </form>
 </div>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
