@@ -8,7 +8,7 @@ using Mission4.Models;
 namespace Mission4.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20220126172834_Initial")]
+    [Migration("20220127003704_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,7 @@ namespace Mission4.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("notes")
+                        .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("rating")

@@ -19,7 +19,7 @@ namespace Mission4.Migrations
                     rating = table.Column<string>(type: "TEXT", nullable: false),
                     edited = table.Column<bool>(type: "INTEGER", nullable: false),
                     lentTo = table.Column<string>(type: "TEXT", nullable: true),
-                    notes = table.Column<string>(type: "TEXT", nullable: true)
+                    notes = table.Column<string>(type: "TEXT", maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {

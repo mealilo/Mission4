@@ -36,6 +36,7 @@ namespace Mission4.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("notes")
+                        .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("rating")
