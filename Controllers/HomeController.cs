@@ -35,6 +35,7 @@ namespace Mission4.Controllers
             ViewBag.Categories = context.Categories.ToList();
             return View("Movies");
         }
+        //submit new movie
         [HttpPost]
         public IActionResult AddMovies(Movie movie)
         {
@@ -50,6 +51,8 @@ namespace Mission4.Controllers
             return View(AllMovies);
         }
 
+
+        //loadingthe screen to edit the ovie
         [HttpGet]
         public IActionResult Edit( int MovieID)
         {
@@ -58,6 +61,8 @@ namespace Mission4.Controllers
 
             return View("Movies", movie);
         }
+
+        //Submitting the edited movie
         [HttpPost]
         public IActionResult Edit(Movie updatedMovie)
         {
