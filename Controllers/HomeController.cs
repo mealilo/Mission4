@@ -42,6 +42,21 @@ namespace Mission4.Controllers
             return View("Movies");
         }
 
+        [HttpGet]
+        public IActionResult AllMovies()
+        {
+            var AllMovies = context.Movie.ToList();
+            return View(AllMovies);
+        }
+
+        [HttpGet]
+        public IActionResult Edit( int MovieID)
+        {
+            Movie movie = context.Movie.Single(x => x.MovieID == MovieID);
+
+            return View("Movies", movie);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
