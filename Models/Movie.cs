@@ -13,8 +13,7 @@ namespace Mission4.Models
         [Required]
         public int MovieID { get; set; }
 
-        [Required]
-        public string category { get; set; }
+        
 
         [Required]
         public string title { get; set; }
@@ -32,5 +31,9 @@ namespace Mission4.Models
         public string lentTo { get; set; }
         [MaxLength(25)]
         public string notes { get; set; }
+
+        [Required]
+        public int categoryID { get; set; }
+        public Categories category { get; set; }
     }
 }

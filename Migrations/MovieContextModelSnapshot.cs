@@ -15,15 +15,46 @@ namespace Mission4.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.13");
 
+            modelBuilder.Entity("Mission4.Models.Categories", b =>
+                {
+                    b.Property<int>("categoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("categoryName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("categoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            categoryID = 1,
+                            categoryName = "Comedy"
+                        },
+                        new
+                        {
+                            categoryID = 2,
+                            categoryName = "Drama"
+                        },
+                        new
+                        {
+                            categoryID = 3,
+                            categoryName = "Horror"
+                        });
+                });
+
             modelBuilder.Entity("Mission4.Models.Movie", b =>
                 {
                     b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("categoryID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("director")
                         .IsRequired()
@@ -52,13 +83,15 @@ namespace Mission4.Migrations
 
                     b.HasKey("MovieID");
 
+                    b.HasIndex("categoryID");
+
                     b.ToTable("Movie");
 
                     b.HasData(
                         new
                         {
                             MovieID = 1,
-                            category = "Action",
+                            categoryID = 1,
                             director = "Quentin",
                             edited = false,
                             lentTo = "Bob",
@@ -70,7 +103,7 @@ namespace Mission4.Migrations
                         new
                         {
                             MovieID = 2,
-                            category = "Comedy",
+                            categoryID = 1,
                             director = "Jack Black",
                             edited = true,
                             lentTo = "Bob",
@@ -82,7 +115,7 @@ namespace Mission4.Migrations
                         new
                         {
                             MovieID = 3,
-                            category = "Drama",
+                            categoryID = 1,
                             director = "Other",
                             edited = true,
                             lentTo = "Jack",
@@ -91,6 +124,17 @@ namespace Mission4.Migrations
                             title = "Yeet",
                             year = 2009
                         });
+                });
+
+            modelBuilder.Entity("Mission4.Models.Movie", b =>
+                {
+                    b.HasOne("Mission4.Models.Categories", "category")
+                        .WithMany()
+                        .HasForeignKey("categoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("category");
                 });
 #pragma warning restore 612, 618
         }

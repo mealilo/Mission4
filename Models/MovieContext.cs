@@ -17,16 +17,23 @@ namespace Mission4.Models
 
         // name of the table
         public DbSet<Movie> Movie { get; set; }
-
+        public DbSet<Categories> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+
+            mb.Entity<Categories>().HasData(
+                new Categories { categoryID = 1, categoryName = "Comedy" },
+                new Categories { categoryID = 2, categoryName = "Drama" },
+                new Categories { categoryID = 3, categoryName = "Horror" }
+
+                );
             mb.Entity<Movie>().HasData(
                 new Movie
                 {
                     MovieID = 1,
                     title = "Incredibles",
-                    category = "Action",
+                    categoryID = 1,
                     rating = "PG-13",
                     director = "Quentin",
                     edited = false,
@@ -38,7 +45,7 @@ namespace Mission4.Models
                 {
                     MovieID = 2,
                     title = "Wahtever",
-                    category = "Comedy",
+                    categoryID = 1,
                     rating = "PG-13",
                     director = "Jack Black",
                     edited = true,
@@ -50,7 +57,7 @@ namespace Mission4.Models
                 {
                     MovieID = 3,
                     title = "Yeet",
-                    category = "Drama",
+                    categoryID = 1,
                     rating = "R",
                     director = "Other",
                     edited = true,

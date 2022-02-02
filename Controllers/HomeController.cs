@@ -32,14 +32,15 @@ namespace Mission4.Controllers
         [HttpGet]
         public IActionResult AddMovies()
         {
-            return View("Movies");
+            List<Categories> AllCategories = context.Categories.ToList();
+            return View("Movies", AllCategories);
         }
         [HttpPost]
         public IActionResult AddMovies(Movie movie)
         {
             context.Add(movie);
             context.SaveChanges();
-            return View("Movies");
+            return RedirectToAction("AllMovies");
         }
 
         [HttpGet]
@@ -55,6 +56,19 @@ namespace Mission4.Controllers
             Movie movie = context.Movie.Single(x => x.MovieID == MovieID);
 
             return View("Movies", movie);
+        }
+
+
+        //Delete method that receives movieID, and then redirects to all movies
+        [HttpGet]
+        public IActionResult Delete(int MovieID)
+        {
+            Movie movie = context.Movie.Single(x => x.MovieID == MovieID);
+
+            context.Movie.Remove(movie);
+            context.SaveChanges();
+
+            return RedirectToAction("AllMovies");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

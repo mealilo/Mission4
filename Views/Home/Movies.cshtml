@@ -10,8 +10,6 @@
 
 
         <form class="text-center w-50" method="post">
-
-
             <label asp-for="title">Title</label>
             <input class="form-control" asp-for="title" />
             <br />
@@ -24,8 +22,17 @@
             </select>
             <br />
 
-            <label asp-for="category">Category</label>
-            <input class="form-control" asp-for="category" />
+            <label asp-for="categoryID">Category</label>
+            <select class="form-control" asp-for="categoryID">
+                @*@foreach(Categories category in AllCategories)
+            {
+                <option value="1">
+                    @category.
+                </option>
+            }*@
+
+                
+            </select>
             <br />
 
             <label asp-for="year">Year</label>
