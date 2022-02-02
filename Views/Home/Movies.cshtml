@@ -24,14 +24,14 @@
 
             <label asp-for="categoryID">Category</label>
             <select class="form-control" asp-for="categoryID">
-                @*@foreach(Categories category in AllCategories)
-            {
-                <option value="1">
-                    @category.
-                </option>
-            }*@
+                @foreach(Categories category in ViewBag.Categories)
+        {
+            <option value="@category.categoryID">
+                @category.categoryName
+            </option>
+        }
 
-                
+
             </select>
             <br />
 

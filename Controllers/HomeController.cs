@@ -32,8 +32,8 @@ namespace Mission4.Controllers
         [HttpGet]
         public IActionResult AddMovies()
         {
-            List<Categories> AllCategories = context.Categories.ToList();
-            return View("Movies", AllCategories);
+            ViewBag.Categories = context.Categories.ToList();
+            return View("Movies");
         }
         [HttpPost]
         public IActionResult AddMovies(Movie movie)
@@ -54,8 +54,17 @@ namespace Mission4.Controllers
         public IActionResult Edit( int MovieID)
         {
             Movie movie = context.Movie.Single(x => x.MovieID == MovieID);
+            ViewBag.Categories = context.Categories.ToList();
 
             return View("Movies", movie);
+        }
+        [HttpPost]
+        public IActionResult Edit(Movie updatedMovie)
+        {
+            context.Update(updatedMovie);
+            context.SaveChanges();
+
+            return RedirectToAction("AllMovies");
         }
 
 
