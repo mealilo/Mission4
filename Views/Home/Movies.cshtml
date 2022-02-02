@@ -6,52 +6,56 @@
 @model Movie
 <div class="container">
     <h1>Enter a new movie!</h1>
-
-    <form method="post">
-
-
-        <label asp-for="title">Title</label>
-        <input class="form-control" asp-for="title" />
-        <br />
-        <label asp-for="rating">Rating</label>
-        <select class="form-control" asp-for="rating">
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-        </select>
-        <br />
-
-        <label asp-for="category">Category</label>
-        <input class="form-control" asp-for="category" />
-        <br />
-
-        <label asp-for="year">Title</label>
-        <input class="form-control" type="number" asp-for="year" />
-        <br />
-
-        <label asp-for="director">Director</label>
-        <input class="form-control" asp-for="director" />
-        <br />
-
-        <label asp-for="edited">Edited</label>
-        <input class="form-control" type="checkbox" asp-for="edited" />
-        <br />
-
-        <label asp-for="lentTo">Lent To</label>
-        <input class="form-control" asp-for="lentTo" />
-        <br />
-
-        <label asp-for="notes">Notes</label>
-        <input class="form-control" asp-for="notes" />
-        <br />
+    <div class="d-flex justify-content-center">
 
 
+        <form class="text-center w-50" method="post">
 
-        <input class="form-control" type="submit" value="Add Movie" />
 
-        <div asp-validation-summary="All"></div>
-    </form>
+            <label asp-for="title">Title</label>
+            <input class="form-control" asp-for="title" />
+            <br />
+            <label asp-for="rating">Rating</label>
+            <select class="form-control" asp-for="rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+            <br />
+
+            <label asp-for="category">Category</label>
+            <input class="form-control" asp-for="category" />
+            <br />
+
+            <label asp-for="year">Year</label>
+            <input class="form-control" type="number" asp-for="year" />
+            <br />
+
+            <label asp-for="director">Director</label>
+            <input class="form-control" asp-for="director" />
+            <br />
+
+            <label asp-for="edited">Edited</label>
+            <input class="form-control" type="checkbox" asp-for="edited" />
+            <br />
+
+            <label asp-for="lentTo">Lent To</label>
+            <input class="form-control" asp-for="lentTo" />
+            <br />
+
+            <label asp-for="notes">Notes</label>
+            <input class="form-control" asp-for="notes" />
+            <br />
+
+
+
+            <input class="form-control" type="submit" value="Add Movie" />
+
+            <div asp-validation-summary="All"></div>
+        </form>
+    </div>
+
 </div>
 
 @section scripts{
